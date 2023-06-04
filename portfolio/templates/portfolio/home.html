@@ -1,10 +1,7 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <title>Portfolio</title>
-</head>
-<body>
+{% extends 'portfolio/base.html' %}
+
+{% block content %}
+
     <h1>Welcome to the Home Page!</h1>
     {% load static %}
     <a href="{% url 'blog:all_blogs' %}"><h2>Blogs Page</h2></a>
@@ -22,5 +19,4 @@
         {% endif %}
     {% endfor %}
 
-</body>
-</html>
+{% endblock %}
