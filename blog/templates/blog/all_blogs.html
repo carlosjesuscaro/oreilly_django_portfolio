@@ -1,10 +1,18 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <title>All blogs</title>
-</head>
-<body>
-    <h1>YO MAMA</h1>
-</body>
-</html>
+{% extends 'portfolio/base.html' %}
+
+{% block content %}
+    <h1>All my blogs</h1>
+    <a href="{% url 'home' %}"><h2>Home</h2></a>
+    <h3>Carlos has written {{ blogs.count }} blog{{ blogs.count|pluralize }}</h3>
+    {% for blog in blogs %}
+        <a href="{% url 'blog:detail' blog.id %}"><h2>{{ blog.name }}</h2></a>
+        <p>{{ blog.synopsis|striptags|truncatechars:100 }}</p>
+        <p>{{ blog.date|date:'M d Y' }}</p>
+        <img src="{{ blog.image.url }}">
+        {% if blog.url %}
+            <br>
+            <a href="{{ blog.url }}">link</a>
+        {% endif %}
+        <br><br>
+    {% endfor %}
+{% endblock %}
