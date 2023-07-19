@@ -6,6 +6,6 @@
     <h3>{{ blog.synopsis|safe }}</h3>
     <p> {{ blog.date|date:'F jS Y' }}</p>
     <a href="{{ blog.url }}">Link</a>
-    <img src="{{ blog.image.url }}">
+    <img src="{{ blog.image.url }}" alt="">
 
 {% endblock %}

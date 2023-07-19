@@ -8,7 +8,7 @@
         <a href="{% url 'blog:detail' blog.id %}"><h2>{{ blog.name }}</h2></a>
         <p>{{ blog.synopsis|striptags|truncatechars:100 }}</p>
         <p>{{ blog.date|date:'M d Y' }}</p>
-        <img src="{{ blog.image.url }}">
+        <img src="{{ blog.image.url }}" alt="">
         {% if blog.url %}
             <br>
             <a href="{{ blog.url }}">link</a>
